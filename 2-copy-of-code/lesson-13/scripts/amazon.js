@@ -1,3 +1,11 @@
+/* so basically, the website is mostly
+can be made from the html+css, javascript
+makes it interactive */
+
+/* gits let us track changes in the code */
+
+/* repository = folder where changes are being tracked */
+
 let productsHTML = '';
 
 products.forEach((product) => {

@@ -4,16 +4,17 @@ body {
 
 .todo-grid,
 .todo-input-grid {
-  display: grid;
+  display: grid; /* this one makes it so that it much easier to understand */
   grid-template-columns: 200px 150px 100px;
   column-gap: 10px;
   row-gap: 10px;
-  align-items: center;
+  align-items: center; /* this one makes it so that we have
+  all 3 columns aligned in the middle */
 }
 
 .todo-input-grid {
   margin-bottom: 10px;
-  align-items: stretch;
+  align-items: stretch; /* makes it so that the add button is aligned better */
 }
 
 .name-input,

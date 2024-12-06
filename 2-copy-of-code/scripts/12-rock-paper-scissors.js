@@ -17,28 +17,42 @@ if (!score) {
 */
 
 let isAutoPlaying = false;
-let intervalId;
+let intervalId; // id is used to stop intervals!
 
 //const autoPlay = () => {
 
 //};
+
+// compared to above, this one is better(better than arrow version)
+// as allows hoisting(using it before we declare it)
 function autoPlay() {
   if (!isAutoPlaying) {
     intervalId = setInterval(() => {
+      /* Set interval repeatedly executes a function at a specified time
+      interval until stopped with clearinterval */
+      /* we use the var intervalid, as it stores the if returned by
+      setinterval. id is needed to stop the interval later,
+      using clearinterval(intervalid), without intervalid,
+      we wouldn't be abşe tp reference specific intervcal */
       const playerMove = pickComputerMove();
-      playGame(playerMove);
+      playGame(playerMove); // this makes it so that
+      // game is played every 1 second
     }, 1000);
+    
     isAutoPlaying = true;
 
   } else {
-    clearInterval(intervalId);
+    clearInterval(intervalId); // withoout this, the code doesn't know 
+    // when to stop, like which interval it has to reference to stop
     isAutoPlaying = false;
   }
 }
 
 document.querySelector('.js-rock-button')
   .addEventListener('click', () => {
-    playGame('rock');
+    playGame('rock'); /* the reason we use "()" is that it has a return
+    value, we don't want to return the return value of "playgame(rock)" 
+    we want to run the code inside it*/
   });
 
 document.querySelector('.js-paper-button')

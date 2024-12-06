@@ -3,6 +3,8 @@
   <head>
     <title>DOM Projects</title>
     <style>
+      /* learned to use classlist and 
+      seperating the files. */
       body {
         font-family: Arial;
       }
@@ -16,12 +18,13 @@
         padding-left: 15px;
         padding-right: 15px;
         font-weight: bold;
-        border-radius: 50px;
-        cursor: pointer;
+        border-radius: 50px; /* how round do you wamt it? */
+        cursor: pointer; /* changes the pointer type when hovered */
         margin-bottom: 30px;
       }
 
-      .is-subscribed {
+      .is-subscribed { /* changed the color to grey when we subsribe */
+        /* we use class that we add with classList */
         background-color: rgb(240, 240, 240);
         color: black;
       }
@@ -38,7 +41,7 @@
       }
 
       .calculate-button {
-        background-color: green;
+        background-color: green; /* background 's property and green 's the value */
         color: white;
         border: none;
         font-size: 15px;
@@ -51,7 +54,8 @@
     <p>YouTube Subscribe Button</p>
     <button onclick="
       subscribe();
-    " class="js-subscribe-button subscribe-button">
+    " class="js-subscribe-button subscribe-button"> 
+    <!-- there is one class for js and other class "subscribe-button, for css" -->
       Subscribe
     </button>
 
@@ -96,7 +100,9 @@
 
         if (buttonElement.innerText === 'Subscribe') {
           buttonElement.innerHTML = 'Subscribed';
-          buttonElement.classList.add('is-subscribed');
+          buttonElement.classList.add('is-subscribed'); // add class "issubsribed"
+          // when we click it, thanks to this we can manipulate this object in 
+          // other classes and such
         } else {
           buttonElement.innerHTML = 'Subscribe';
           buttonElement.classList.remove('is-subscribed');

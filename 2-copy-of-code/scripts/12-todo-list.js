@@ -1,6 +1,6 @@
 const todoList = [{
   name: 'make dinner',
-  dueDate: '2022-12-22'
+  dueDate: '2022-12-22' // we added a new attribute due date
 }, {
   name: 'wash dishes',
   dueDate: '2022-12-22'
@@ -11,6 +11,9 @@ renderTodoList();
 function renderTodoList() {
   let todoListHTML = '';
 
+  /* todoobject is dynamaically declared. so basically we hover over
+  to do list and use todobject as the index */
+  /* we recommemnd using arrow function on foreach */
   todoList.forEach((todoObject, index) => {
     const { name, dueDate } = todoObject;
     const html = `
@@ -24,11 +27,14 @@ function renderTodoList() {
   document.querySelector('.js-todo-list')
     .innerHTML = todoListHTML;
 
-  document.querySelectorAll('.js-delete-todo-button')
+  document.querySelectorAll('.js-delete-todo-button') // declared in line 22
+  // all elements with class js-delete-todo-button
     .forEach((deleteButton, index) => {
+      // for each delete button, we check if we clicked it
       deleteButton.addEventListener('click', () => {
         todoList.splice(index, 1);
-        renderTodoList();
+        renderTodoList(); /* we also call render so that we can see updatedd version  */
+        /* The code above removes the value! We splice the value(remove it) */
       });
     });
 }

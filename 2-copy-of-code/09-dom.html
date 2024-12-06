@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DOM</title>
+    <title>DOM</title> 
   </head>
   <body>
     <button>hello</button>
-    <button class="js-button">Second button</button>
+    <button class="js-button">Second button</button> 
+    
+    <!-- In this lesson I learned DOM, 
+     document.queryselecyot(get values from inputs)
+     innerhtml(change the html of the webpage)
+     3 projects using the dom
+     onmkeydown: makes it interactive by reading while typing
+    -->
+    <!-- use js-button class naming tt make it understand easier -->
 
     <script>
+      // shift + alt + a -> comment multiple lines
+      // ctrl + click + shift inspect/ go to definition
+      // 
+
+
+      // DOM stand for document object model
+      // provides a way for programming languages s.a JS, to 
+      // interact with and manipulate the structure, content and 
+      // style of a webpage.
+
+      // DOM allows developers to dynamically change content:
+      // *modify styles(element.style.color = "blue")
+      /* modify styles 
+      add/remove elements! */
+
+      // document object models/represents the webpage!
+
       console.log(document.querySelector('button').innerHTML);
       document.querySelector('button')
         .innerHTML = 'Changed';
 
       const buttonElement = document.querySelector('.js-button');
+      // this is an example that showcases, DOM combines the JS and 
+      // HTML together.
       console.log(buttonElement);
+      buttonElement.innerHTML = "butttt111"
+      // yan, bunun içeriğinide değiştirebiliyoruz.
       
       /*
       console.log(document.title);
       document.title = 'Changed';
 
-      console.log(document.body);
+      console.log(document.body); // we can have html elements in js!
       console.log(typeof document.body);
 
       console.log(document.body.innerHTML);
       document.body.innerHTML = '<button>Good job!</button>';
       */
       
-      /*
-      document.body.innerHTML = 'hello';
-      document.title = 'Good job!';
-      */
+      
+      /* document.body.innerHTML = 'hell1o';
+      document.title = 'Good job!'; */
+      
     </script>
   </body>
 </html>

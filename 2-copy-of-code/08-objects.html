@@ -5,6 +5,9 @@
   </head>
   <body>
     <script>
+      // difference between json and javascript is that we have can have functions in javascript 
+      // JSON(Javascript Object Notation) = data exchange between systems, particularly in web applications (e.g., APIs, configuration files).
+
       /*
       const product = {
         name: 'socks',
@@ -46,20 +49,25 @@
 
       console.log(typeof console.log);
 
-      console.log(JSON.stringify(product2));
+      console.log(JSON.stringify(product2));//changes the javascript object into json
+      // however in the json, the function inside the object is lost!
+      // the object becomes a string actually!
 
       const jsonString = JSON.stringify(product2);
       console.log(JSON.parse(jsonString));
       */
 
       console.log('hello'.length);
-      console.log('hello'.toUpperCase());
+      console.log('hello'.toUpperCase());// this works because js wraps strings with special 
+      // objects, it is called "auto boxing"
 
       const object1 = {
         message: 'hello',
         price: 799
       };
       const object2 = object1;
+      // copy by ref, it only copies the reference point, so it does not
+      // create a brand new copy with the same values in another location
 
       object1.message = 'Good job!';
       console.log(object1);
@@ -69,26 +77,28 @@
         message: 'Good job!',
         price: 799
       };
-      console.log(object1 === object3);
-
+      console.log(object1 === object3); // this is not true as they don't
+      // point to the same memory location.
+ 
       // const message = object1.message;
-      const { message, price: cost } = object1;
+      const { message, price: cost } = object1; // costu burada object1'in priceına save ettim.
       console.log(message);
       console.log(cost);
 
       const object4 = {
         // message: message,
         message,
-        // method: function function1() {
-
+        // method is a propert such as variable message
+        method: function function1() {
+          console.log("method12");
+        }
         // },
         // method: function() {
 
         // },
-        method() {
-
-        }
       };
+      console.log(object4);
+      object4.method(); // calls the function itself!
     </script>
   </body>
 </html>

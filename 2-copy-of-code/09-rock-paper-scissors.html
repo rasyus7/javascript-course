@@ -17,7 +17,9 @@
       playGame('scissors');
     ">Scissors</button>
 
-    <p class="js-result"></p>
+    <p class="js-result"></p> 
+    <!-- these are like placeholders, they keep track of what result, moves or
+    scores should be  -->
     <p class="js-moves"></p>
     <p class="js-score"></p>
 
@@ -30,12 +32,54 @@
     ">Reset Score</button>
 
     <script>
+      /* Persistent Storage:
+
+      Data stored in localStorage remains until explicitly removed by the developer or the user (e.g., clearing browser data).
+      Key-Value Storage:
+
+      Data is stored as key-value pairs, with both keys and values being strings.
+      Capacity:
+
+      Most browsers allow up to 5MB of data to be stored per domain.
+      Synchronous API:
+
+      Accessing or modifying data in localStorage is synchronous (happens immediately). */
+      
+      /* From this point on forward, all the changes are made to localstorage! */
       let score = JSON.parse(localStorage.getItem('score')) || {
         wins: 0,
         losses: 0,
         ties: 0
       };
+      /*  Retrieving the Score:
+      let score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, ties: 0 };
+      score is a new object in memory based on the data retrieved from local storage.
+      Updating the In-Memory Score:
 
+      score.wins++;
+      The score object is updated, but local storage is not updated yet.
+      Saving Back to Local Storage:
+
+      localStorage.setItem('score', JSON.stringify(score));
+      This ensures the updated score object is stored in local storage. */
+
+      /* Think of local storage like a notebook and your score object like a scratchpad:
+
+      When you retrieve data from local storage, it's like copying from the notebook to your scratchpad.
+      Updating the scratchpad (score.wins++) does not automatically update the notebook.
+      To sync the changes, you need to explicitly write back to the notebook using localStorage.setItem(). */
+
+
+      /* The reason we use this type of design is that efficiency:
+      Accessing and modifying in memory "score" object is much faster
+      thus we don't want to make local storage calls all the time
+      We when to have permanent changes(local storage), as the local 
+      storage info stays until we clear browserr data(like cookies!
+
+      Local storage is a web storage API designed for clientside persistence
+      Meant for non sensitive data s.a user preferences(dark theme)
+      Application state(items in cart)
+      */
       updateScoreElement();
 
       /*
@@ -89,11 +133,20 @@
           score.ties += 1;
         }
 
-        localStorage.setItem('score', JSON.stringify(score));
+        /* On page load:
+        The score is retrieved from local storage and parsed into the score object.
+        When the game is played:
+        The score object is updated in memory (e.g., score.wins += 1).
+        The updated score object is saved back to local storage with localStorage.setItem().
+        The HTML is updated to display the current scores using .innerHTML with values from the score object.
+ */
 
-        updateScoreElement();
+        localStorage.setItem('score', JSON.stringify(score)); // set the score to the JSON file
 
-        document.querySelector('.js-result').innerHTML = result;
+
+        updateScoreElement(); // set the score to display on webpage
+
+        document.querySelector('.js-result').innerHTML = result; 
 
         document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
       }

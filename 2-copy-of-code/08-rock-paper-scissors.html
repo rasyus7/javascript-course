@@ -25,14 +25,16 @@
     ">Reset Score</button>
 
     <script>
+      // null = we want something intentionaly empty VS undefined not defined
+      // burada score, tüm değerlerini localStorage denilen yerden alıyor.
       let score = JSON.parse(localStorage.getItem('score')) || {
-        wins: 0,
-        losses: 0,
+        wins: 0, // eğer score null ise(yani score daha ortada yoksa) sağ taraf call ediliyor
+        losses: 0, 
         ties: 0
       };
 
       /*
-      if (!score) {
+      if (!score) { // checks if score exists or not!
         score = {
           wins: 0,
           losses: 0,
@@ -82,7 +84,12 @@
           score.ties += 1;
         }
 
-        localStorage.setItem('score', JSON.stringify(score));
+        // if we try to get a key value that doesn't exist, it will give the value null!
+        localStorage.setItem('score', JSON.stringify(score)); // burada 3 değeride 
+        console.log(score)
+        // local storage has setter and getter functions
+        // used for saving user preferences such as dakr mode etc.
+        // it's limited to only being used as string
 
         alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
 Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);

@@ -5,7 +5,9 @@
   </head>
   <body>
     <button onclick="" class="js-button">Click</button>
-
+    <!-- keep in mind that functions are values! -->
+    <!-- method = function saved inside an object -->
+     <!-- settimeout, setinterval, ,in these we might have to clear -->
     <script>
       /*
       const buttonElement = document.querySelector('.js-button');
@@ -14,6 +16,9 @@
         console.log('click');
       };
       buttonElement.addEventListener('click', eventListener);
+      // event listener is click as we declared "onclick" om line 7
+      // event listeners allows multiple event listeners
+      // recomenende to use event listeners, instead of onclick
 
       buttonElement.removeEventListener('click', eventListener);
 
@@ -38,6 +43,7 @@
       console.log(typeof function1);
       function1();
 
+      // method = is a function saved inside an object
       const object1 = {
         num: 2,
         fun: function() {
@@ -54,17 +60,39 @@
       function run(param) {
         param();
       }
-      run(function() {
+      
+      // called passing a function to another function
+      // what "function" deos is: it defines a function on the spot, ,
+      // its called a anonymous function
+      run(function() { 
         console.log('hello4');
       });
       */
 
+      // why is anonymous function used? "function()"
+      // 1) asynchronous way of coding requires it(liine 74-84)
+      // 2) anonymous functions(one time use)(line 74)
+      // 3) create closures, remember vars from only calling functions
+      // 4) execute code immediately after defining it, acoiding
+      // polluting global scope
+      // 5) allows event handlers
+      // 6) high order functions
+      // in sum: encapsulates, enable asynchronous execution,
+      // support closure
+
       /*
+      // if we didn' had "function()", it would be executed immedietly, 
+      // not after delaying for 2 seconds
       setTimeout(function() {
         console.log('timeout');
         console.log('timeout2');
       }, 3000);
 
+      asynchronous code, meaning it won't wait the previous code to
+      finish exevtuion before moving downwards, 
+      before we were writing in synch now it has become asynch with 
+      timeout function calls.
+    
       console.log('next line');
 
       setInterval(function() {
@@ -93,6 +121,7 @@
         return 5;
       };
 
+      // in arrow functions we just don't use the word "function  "
       const arrowFunction = (param, param2) => {
         console.log('hello');
         return 5;
@@ -107,6 +136,7 @@
       const oneLine = () => 2 + 3;
       console.log(oneLine());
 
+      // method: when we declare a vraible through a function!
       const object2 = {
         method: () => {
 
@@ -118,6 +148,8 @@
       */
 
       console.log([1, -3, 5].filter((value, index) => {
+        // filters out the values, works like foreach
+        // if we value is true, dont remove that value
         /*
         if (value >= 0) {
           return true;
