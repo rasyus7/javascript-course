@@ -7,10 +7,10 @@
     <button onclick="" class="js-button">Click</button>
     <!-- keep in mind that functions are values! -->
     <!-- method = function saved inside an object -->
-     <!-- settimeout, setinterval, ,in these we might have to clear -->
+    <!-- settimeout, setinterval, ,in these we might have to clear -->
     <script>
       /*
-      const buttonElement = document.querySelector('.js-button');
+      const buttonElement = document.querySelector('.js-button'); // crate a js variable for the .js_botton class
 
       const eventListener = () => {
         console.log('click');
@@ -19,6 +19,10 @@
       // event listener is click as we declared "onclick" om line 7
       // event listeners allows multiple event listeners
       // recomenende to use event listeners, instead of onclick
+
+      //Maintainability: Using addEventListener promotes cleaner code by separating structure (HTML) from behavior (JavaScript).
+      // instead of declaring events on html, deacalta it in script using the eventlistener, by creating a variable in js
+      // that chooses the html class(in this caase the .jsbutton)
 
       buttonElement.removeEventListener('click', eventListener);
 
@@ -64,13 +68,14 @@
       // called passing a function to another function
       // what "function" deos is: it defines a function on the spot, ,
       // its called a anonymous function
+      // function() helps you execute the function rather than returning the return value of that function
       run(function() { 
         console.log('hello4');
       });
       */
 
       // why is anonymous function used? "function()"
-      // 1) asynchronous way of coding requires it(liine 74-84)
+      // 1) asynchronous way of coding requires it(line 74-84)
       // 2) anonymous functions(one time use)(line 74)
       // 3) create closures, remember vars from only calling functions
       // 4) execute code immediately after defining it, acoiding

@@ -3,18 +3,27 @@ import {getProduct} from '../../data/products.js';
 import {getDeliveryOption} from '../../data/deliveryOptions.js';
 import {formatCurrency} from '../utils/money.js';
 
+
+/* steps
+1)loop through cart
+2)for each->price*quantity
+3)add everything together */
 export function renderPaymentSummary() {
   let productPriceCents = 0;
   let shippingPriceCents = 0;
 
-  cart.forEach((cartItem) => {
-    const product = getProduct(cartItem.productId);
+  cart.forEach((cartItem) => { /* 1) */
+    const product = getProduct(cartItem.productId);/* gets matching product */
     productPriceCents += product.priceCents * cartItem.quantity;
 
+    /* we used two newly declarted function to make it easier
+    getProduct and getDeliveryOption */
     const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
     shippingPriceCents += deliveryOption.priceCents;
   });
 
+
+  /* bu noktadan sonra loopa gerek yok çünkü sadece 1 tane final value değeri var*/
   const totalBeforeTaxCents = productPriceCents + shippingPriceCents;
   const taxCents = totalBeforeTaxCents * 0.1;
   const totalCents = totalBeforeTaxCents + taxCents;

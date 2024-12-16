@@ -3,6 +3,47 @@
   <head>
     <title>Amazon Project</title>
 
+    <!-- care MVC -->
+
+    <!-- what we learned
+    1)you can import js code from internet too, it is usually
+     minified(called external library)
+    
+    2) he wrote the code so clearly, each file has a reason 
+    and everything makers sense in the files 
+    
+    3)when you need to implement somethingi, don't reinvent wheel
+    use external modules/libraries, can use ai to find libararies
+   
+    4)JS Modules(ESM)(ECMA script version) contain modules so they 
+    won't conflict with any other file in this project
+    format: import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+    
+    5)!!!we NORMALIZED data: (instead of saving delivery info in cart,
+    we saved it inside a seperate array of key value pair called 
+    deliveryOptions(with 3 instances) and pointed it with "cart" attribute "deliveryOptionID")
+    
+    6)!!!after you change html, you need to rerun script, in this
+    case the renderOrderSummary() and renderPaymentSummary(), this is
+    also when we remove the values
+
+    7)!!!What is MVC(Model-View-Controller)
+      1)Model=save and manage data(in our case data folder with cart.js, products.js, deliveryoptions.js)
+      2)View =takes data displays on page(ordersummary.js->render() function) anad accumulator pattern
+      3)Controller=run some code when interact with the page(event callers!)
+    
+    8)Created two files for rendering two sections(ls, rs)
+      1)ordersummary
+      2)paymentsummary 
+    
+    9)created the payment section
+    -->
+
+
+    <!-- 1)save data
+     2)generate html
+     3)make it interactive -->
+
     <!-- This code is needed for responsive design to work.
       (Responsive design = make the website look good on
       smaller screen sizes like a phone or a tablet). -->
@@ -38,7 +79,7 @@
       </div>
 
       <div class="amazon-header-right-section">
-        <a class="orders-link header-link" href="orders.html">
+        <a class="orders-link header-link" href="orders.html"> <!-- here is where we change the website -->
           <span class="returns-text">Returns</span>
           <span class="orders-text">& Orders</span>
         </a>

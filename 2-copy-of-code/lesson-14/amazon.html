@@ -3,6 +3,34 @@
   <head>
     <title>Amazon Project</title>
 
+    <!-- In this lesson we learned about
+     1)Modules
+     2)Create checkout page
+     3)HTML link elements and radio selectors(using data-* notation)
+     4)Delete link both deletes the object and the changes the innerhtml
+     (we used event listeners click for this)
+     5)!!!Save the cart in local storage
+     6)!!!for the cart, we didn't just added a value, we created
+     a copy with the new instance as its better for side effects/
+     immutablity.(cart.js)
+     7)we structured the code better. now instead we have all things connected
+     at the same area not all in the same js file
+     8)use utils file for better structuring og the code -->
+
+    <!-- Recomended to use modeles instead of including script files
+     as the "script" files can cause naming issues, we don't want
+     to access that script all the time just some times 
+     this can also be apleid in TIA maybe?-->
+
+    <!-- creating a module:
+     1)create a file
+     2)!!!don't load the file with <script> -->
+
+    <!-- getting a variable out of a file
+     1)add type="module" attribute
+     2)export
+     3)import -->
+
     <!-- This code is needed for responsive design to work.
       (Responsive design = make the website look good on
       smaller screen sizes like a phone or a tablet). -->
@@ -56,6 +84,16 @@
       </div>
     </div>
 
-    <script type="module" src="scripts/amazon.js"></script>
+
+     <!-- getting a variable out of a file
+     1)add type="module" attribute to a js file
+     2)export the vars or functions that other js file will use
+     3)import from the main js file that uses function and vars
+     from the exports, ,n this case scripts/amazon.js -->
+    <script type="module" src="scripts/amazon.js"></script> 
+    <!--when we set type to module, it allows amazon.js to access
+    other modules? -->
+
+
   </body>
 </html>

@@ -1,6 +1,9 @@
 import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
+/* third set, importing! importing helps us avoid naming conflicts,
+  also we dont have to worry about the order of files imported*/
+/* !!! for modules to work you need a live server */
 
 let productsHTML = '';
 

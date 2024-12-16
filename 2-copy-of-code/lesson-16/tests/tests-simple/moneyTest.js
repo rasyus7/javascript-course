@@ -4,6 +4,10 @@ console.log('test suite: formatCurrency');
 
 console.log('converts cents into dollars');
 
+/* money suite=group of tests */
+
+/* you can make this code as well! it's not impossible 
+, it's quite standart and easy, you get gelp from ai*/
 if (formatCurrency(2095) === '20.95') {
   console.log('passed');
 } else {
@@ -17,6 +21,9 @@ if (formatCurrency(0) === '0.00') {
 } else {
   console.log('failed');
 }
+/* how many test case we need?
+1)basic cases
+2)edge cases */
 
 console.log('rounds up to the nearest cent');
 

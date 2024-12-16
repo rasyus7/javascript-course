@@ -6,10 +6,25 @@ makes it interactive */
 
 /* repository = folder where changes are being tracked */
 
-let productsHTML = '';
+/* how you find section of the webpage on code? 
+search from the inspect the name of the class then go there
+inspect->press the button that has a mouse
+*/
 
-products.forEach((product) => {
-  productsHTML += `
+
+/* main ideas of js->
+1)save the data 
+2)generate html 
+3)make it interactive*/
+
+
+let productsHTML = '';
+/* we want to generate html code with js, as we have so many divs and such */
+products.forEach((product) => { /* iterate through the json objects 
+  this is a nice way to generate stuff*/
+  /* in js, they useally use objects or arrays as data structures */
+  /* with notation ${product.image}, get the value from the "product" iterations */
+  productsHTML /* this is called the accumulator pattern */ += `
     <div class="product-container">
       <div class="product-image-container">
         <img class="product-image"
@@ -29,7 +44,7 @@ products.forEach((product) => {
       </div>
 
       <div class="product-price">
-        $${(product.priceCents / 100).toFixed(2)}
+        $${(product.priceCents / 100).toFixed(2)} /* show two decimals */
       </div>
 
       <div class="product-quantity-container">
@@ -61,23 +76,34 @@ products.forEach((product) => {
     </div>
   `;
 });
+/* data-product-id is a data attribute in html */
+/* the reason we use product id is that there might be multiple items 
+with the same value so its better practice to d o it this way */
+
+/* benefit of generating html? = we can just run a loop in js
+using the values saved inside a json object! */
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
+// here is where we declare the products
 
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', () => { /* for every button we are
+      listening or waiting for a click */
       const productId = button.dataset.productId;
-
+      /* reason we use id instead of name is that it migt not be unique */
+      console.log(productId)
+      /* can control if event listenres is working by calling "console.log"*/
       let matchingItem;
 
-      cart.forEach((item) => {
+      cart.forEach((item) => { /* identify if alreadt in cart */
         if (productId === item.productId) {
           matchingItem = item;
         }
       });
 
-      if (matchingItem) {
+      if (matchingItem) { /* if in cart, increase quanttity by 1,
+        else if not in cart add it to the cart */
         matchingItem.quantity += 1;
       } else {
         cart.push({
@@ -88,11 +114,13 @@ document.querySelectorAll('.js-add-to-cart')
 
       let cartQuantity = 0;
 
-      cart.forEach((item) => {
+      cart.forEach((item) => { /* total number of items */
         cartQuantity += item.quantity;
       });
 
-      document.querySelector('.js-cart-quantity')
+      document.querySelector('.js-cart-quantity') 
+        /* chanhe the html so that it shows the correct number of 
+        items in the cart */
         .innerHTML = cartQuantity;
     });
   });

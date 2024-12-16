@@ -3,6 +3,18 @@
   <head>
     <title>Amazon Project</title>
 
+    <!-- !!!THINGS LEARNED
+     1)started project of amazon
+     2) set up and learned git
+     3)learned the main idea of js
+     4)created a list of products
+     5) made the "add to" cart button interactive
+     6)made the cart quantity interactive
+     7)we made both the products and the cart arrays with key-value pairs -->
+
+    <!-- /* we want to generate html code with js, as we have so many divs and such */ 
+     this is the right way of programming such as using event listeners-->
+
     <!-- This code is needed for responsive design to work.
       (Responsive design = make the website look good on
       smaller screen sizes like a phone or a tablet). -->
@@ -45,7 +57,8 @@
 
         <a class="cart-link header-link" href="checkout.html">
           <img class="cart-icon" src="images/icons/cart-icon.png">
-          <div class="cart-quantity js-cart-quantity">0</div>
+          <div class="cart-quantity js-cart-quantity">0</div> <!-- added
+          this so that we can change calues inside this! -->
           <div class="cart-text">Cart</div>
         </a>
       </div>
@@ -56,8 +69,10 @@
       </div>
     </div>
 
-    <script src="data/cart.js"></script>
-    <script src="data/products.js"></script>
+    <script src="data/cart.js"></script> 
+    <script src="data/products.js"></script> <!-- we need to declare
+    the prodcut values before we can call the functions to change 
+    the innerhtml-->
     <script src="scripts/amazon.js"></script>
   </body>
 </html>
