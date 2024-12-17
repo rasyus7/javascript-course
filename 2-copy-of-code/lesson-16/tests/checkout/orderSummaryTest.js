@@ -5,7 +5,8 @@ describe('test suite: renderOrderSummary', () => {
   const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
   const productId2 = '15b6fc6f-327a-4ec4-896f-486349e85a3d';
 
-  beforeEach(() => {
+  beforeEach(() => { /* this is the setup code! */
+    /* runs code before each test, also called hook */
     spyOn(localStorage, 'setItem');
 
     document.querySelector('.js-test-container').innerHTML = `
@@ -29,7 +30,7 @@ describe('test suite: renderOrderSummary', () => {
     renderOrderSummary();
   });
 
-  it('displays the cart', () => {
+  it('displays the cart', () => { /* check html */
     expect(
       document.querySelectorAll('.js-cart-item-container').length
     ).toEqual(2);
@@ -43,11 +44,11 @@ describe('test suite: renderOrderSummary', () => {
     document.querySelector('.js-test-container').innerHTML = '';
   });
 
-  it('removes a product', () => {
+  it('removes a product', () => { /* check behaviour */
     document.querySelector(`.js-delete-link-${productId1}`).click();
     expect(
       document.querySelectorAll('.js-cart-item-container').length
-    ).toEqual(1);
+    ).toEqual(1); /* check if correcetly deleted by looking at the numbed of items in cart */
     expect(
       document.querySelector(`.js-cart-item-container-${productId1}`)
     ).toEqual(null);
@@ -57,6 +58,7 @@ describe('test suite: renderOrderSummary', () => {
     expect(cart.length).toEqual(1);
     expect(cart[0].productId).toEqual(productId2);
 
-    document.querySelector('.js-test-container').innerHTML = '';
+    document.querySelector('.js-test-container').innerHTML = ''; /* we make it equal to 0
+    as we dont have to inspect it and pushed the jasmine test results further down */
   });
 });
