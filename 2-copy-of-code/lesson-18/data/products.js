@@ -12,14 +12,19 @@ export function getProduct(productId) {
   return matchingProduct;
 }
 
-class Product {
+class Product { /* this class is meant to generate products
+  before we were creating this "objects" of arrays of key value pairs 
+  instead of actual making sense classes*/
   id;
   image;
   name;
   rating;
   priceCents;
 
-  constructor(productDetails) {
+  constructor(productDetails) { /* whenever we generate an object 
+    we should run this code instead */
+    /* we call this like 
+    const product = new Product */
     this.id = productDetails.id;
     this.image = productDetails.image;
     this.name = productDetails.name;
