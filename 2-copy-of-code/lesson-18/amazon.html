@@ -4,6 +4,7 @@
     <title>Amazon Project</title>
 
     <!-- things learned
+    (to be frank backend part didnt really work out)
     1)Instead of functions, we use classes of cart-class.js 
     again we are creting objects but now usşing the classes
     2)constructor=initalize and create an instance of an object
@@ -16,9 +17,47 @@
     6)learned to convert an object into a class
     (using map)
     7)inheritence: avoid code dup by reusing the code
+    8)make sure you use the correct private and public additions in the code
     
+    lec18:callbacks, backend and async wait
     8)backend, callbacks and async wait
-    -->
+      (to be frank backend part didnt really work out)
+      1)backend:computer that manages data of a website
+        how does it work? when we request for a item in amazon
+        they save the data on a computer that is owned by amazon
+        frontend: where the user sees things, html css of website
+
+      2)https have 1 request and 1 response,
+      you can see the network packages or messages
+      send through HTTPS requests
+      status code show is https request was successfull or not
+
+      3)!!!using a browser to see a webpage = a GET request of HTTPS
+    
+      4)happens in product.js
+      5)main thing about this kind of coding(using backend) is you have 
+      to care about the callbacks
+        1)send a request
+        2)wait for a callback for a response, then run the code
+        3)when you write code with testing cases, make sure
+        that loading of data is done before the testing
+      -->
+
+      <!-- 
+      Promises in JavaScript are objects used to handle asynchronous operations
+       (e.g., fetching data). They represent the eventual result of an operation:
+        fulfilled (success), rejected (error), or pending.
+      fetch is a built-in function used to make HTTP requests to a backend server.
+      resolves let us control when we go to the next step
+      !!!main adv of promises 
+        1)is that compared to callbacks, we have 
+        less nesting thus easier to understand, 
+        keeps the code flat
+        2)we can control the flow with keyword("resolve")
+        3)has function called "promiseAll" which the code inside the 
+        array at the same time, which is not provided by callbacks
+      -->
+
 
 
     <!-- This code is needed for responsive design to work.
@@ -74,6 +113,7 @@
       </div>
     </div>
 
+    <script type="module" src="data/backend-practice.js"></script>
     <script type="module" src="scripts/amazon.js"></script>
   </body>
 </html>

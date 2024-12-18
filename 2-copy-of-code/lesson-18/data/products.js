@@ -123,9 +123,10 @@ loadProductsFetch().then(() => {
 */
 
 export function loadProducts(fun) {
+  /* load from the website */
   const xhr = new XMLHttpRequest();
 
-  xhr.addEventListener('load', () => {
+  xhr.addEventListener('load', () => { /* Adds an event listener that triggers when the request finishes loading successfully. */
     products = JSON.parse(xhr.response).map((productDetails) => {
       if (productDetails.type === 'clothing') {
         return new Clothing(productDetails);

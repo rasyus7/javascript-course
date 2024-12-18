@@ -29,7 +29,10 @@ async function loadPage() {
 loadPage();
 
 /*
-Promise.all([
+// promise all let us run multiple promises at the same time
+// inside the array, it waits for all the promises before going to 
+// the next step
+Promise.all([ 
   loadProductsFetch(),
   new Promise((resolve) => {
     loadCart(() => {
@@ -45,12 +48,15 @@ Promise.all([
 */
 
 /*
-new Promise((resolve) => {
-  loadProducts(() => {
+// first load the products, then resolce with "value1"(log it)
+// then the we go to then, we execute loadcart, then we go to the 
+// calling other 2 functions
+new Promise((resolve) => { 
+  loadProducts(() => { //step 1
     resolve('value1');
   });
 
-}).then((value) => {
+}).then((value) => { //step 2
   console.log(value);
 
   return new Promise((resolve) => {
@@ -59,14 +65,16 @@ new Promise((resolve) => {
     });
   });
 
-}).then(() => {
+}).then(() => { //step 3
   renderOrderSummary();
   renderPaymentSummary();
 });
 */
 
+
+/* does the same thing a above but smaller code */
 /*
-loadProducts(() => {
+loadProducts(() => { 
   loadCart(() => {
     renderOrderSummary();
     renderPaymentSummary();
