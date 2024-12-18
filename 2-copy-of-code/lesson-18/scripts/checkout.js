@@ -9,7 +9,7 @@ async function loadPage() {
   try {
     // throw 'error1';
 
-    await loadProductsFetch();
+    await loadProductsFetch(); //second step
 
     const value = await new Promise((resolve, reject) => {
       // throw 'error2';
