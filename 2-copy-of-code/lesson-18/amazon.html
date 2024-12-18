@@ -43,12 +43,12 @@
         that loading of data is done before the testing
       -->
 
-      <!-- 
-      Promises in JavaScript are objects used to handle asynchronous operations
-       (e.g., fetching data). They represent the eventual result of an operation:
+      <!-- lesson 19
+      1)Promises in JavaScript are objects used to handle asynchronous operations
+        (e.g., fetching data). They represent the eventual result of an operation:
         fulfilled (success), rejected (error), or pending.
-      fetch is a built-in function used to make HTTP requests to a backend server.
-      resolves let us control when we go to the next step
+        fetch is a built-in function used to make HTTP requests to a backend server.
+        resolves let us control when we go to the next step
       !!!main adv of promises 
         1)is that compared to callbacks, we have 
         less nesting thus easier to understand, 
@@ -56,6 +56,11 @@
         2)we can control the flow with keyword("resolve")
         3)has function called "promiseAll" which the code inside the 
         array at the same time, which is not provided by callbacks
+        4)saves the response in a variable! so then() can use it
+      2)fetch:fetch is a built-in function used to make HTTP requests to a backend server.
+        resolves let us control when we go to the next step
+        1)much simpler compared to XMLRequest
+        2)parses the fetched data into an array! easier to maintain
       -->
 
 

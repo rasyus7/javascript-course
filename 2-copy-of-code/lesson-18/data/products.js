@@ -95,18 +95,21 @@ object3.method();
 */
 
 export let products = [];
-
+/* "fetcxh" makes an http request */
 export function loadProductsFetch() {
-  const promise = fetch(
+  /* fetch is much simpler compare to XMLHttp request */
+  const promise = fetch( //step 1, also parses into arrays!
     'https://supersimplebackend.dev/products'
-  ).then((response) => {
+  ).then((response) => { //save the response in "response"
     return response.json();
   }).then((productsData) => {
     products = productsData.map((productDetails) => {
       if (productDetails.type === 'clothing') {
-        return new Clothing(productDetails);
+        return new Clothing(productDetails); //still we have to convert
+        //them into objects
       }
       return new Product(productDetails);
+      // still we have to convert them to objects
     });
 
     console.log('load products');
