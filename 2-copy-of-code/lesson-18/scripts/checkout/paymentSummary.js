@@ -69,26 +69,53 @@ export function renderPaymentSummary() {
   document.querySelector('.js-payment-summary')
     .innerHTML = paymentSummaryHTML;
 
-  document.querySelector('.js-place-order')
+  /* Collect the cart data
+
+  Send it to a server
+
+  Process the response
+
+  Store the order information
+
+  Redirect to an order confirmation page */
+  document.querySelector('.js-place-order') /* these are products in
+  order */
     .addEventListener('click', async () => {
       try {
-        const response = await fetch('https://supersimplebackend.dev/orders', {
+        const response = await fetch('https://supersimplebackend.dev/orders', { 
+        // the most likely reason I don't get the response is that this might be 
+        // a server that is not really working for now
+        // send data to the backend
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
+            /* we have to convert json to send to backend */
           },
           body: JSON.stringify({
             cart: cart
           })
         });
 
-        const order = await response.json();
+        const order = await response.json(); 
+        console.log(order);
+        console.log('success');
+        /* we are waiting the response */
+        /* order object has order id, quantity */
+
+        /* after we create an order from the backend, we add the order to
+        an array saved in local storage */
         addOrder(order);
+
+          // Add a delay before redirecting
+        setTimeout(() => {
+          window.location.href = 'orders.html';
+        }, 1000); // Delays redirect by 1 second
 
       } catch (error) {
         console.log('Unexpected error. Try again later.');
       }
 
       window.location.href = 'orders.html';
+      /* changes the url! this is how in kocayusuf website we redirect to other pages */
     });
 }
