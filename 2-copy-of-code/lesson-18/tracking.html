@@ -90,8 +90,13 @@
     </div>
 
     <script>
+      /* url parameters allows us to save different data in each url
+      in youtube for example, it is saved as url parameters, if we search something 
+      else it is also saved as another parameter we can go forward or backwards */
+      /* here we get the data from the url */
       const url = new URL(window.location.href);
-      console.log(url.searchParams.get('orderId'));
+      /* above line returns a URL object that we can use to get the data from the url parameters */
+      console.log(url.searchParams.get('orderId')); /* orderid */
       console.log(url.searchParams.get('productId'));
     </script>
   </body>
