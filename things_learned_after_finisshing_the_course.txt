@@ -1,0 +1,401 @@
+Here from the notes I took from: https://www.youtube.com/watch?v=EerdGm-ehJQ
+
+I learned a lot on what I need to do, in order to make a website, especially one that is like an amazon.
+Things we didn't cover is that what I need to do on backend and security. Also I need to find a way
+to make it faster and look at the recommendations I took from my friends.
+whats next->either create your own backend(with node.js) or use anopther persons
+
+
+Lesson 8:
+difference between json and javascript is that we have can have functions in javascript 
+JSON(Javascript Object Notation) = data exchange between systems, particularly in web applications (e.g., APIs, configuration files).
+
+console.log(JSON.stringify(product2));//changes the javascript object into json
+      // however in the json, the function inside the object is lost!
+      // the object becomes a string actually!
+
+// null = we want something intentionaly empty VS undefined not defined
+      // burada score, tüm değerlerini localStorage denilen yerden alıyor.
+
+// local storage has setter and getter functions
+        // used for saving user preferences such as dakr mode etc.
+
+Lesson 9:
+
+onmkeydown is an html attribute and it has an event listener
+, !!! but instead now we use js version addEventListener 
+
+ In this lesson I learned DOM, 
+     document.queryselecyot(get values from inputs)
+     innerhtml(change the html of the webpage)
+     3 projects using the dom
+     onmkeydown: makes it interactive by reading while typing
+
+// shift + alt + a -> comment multiple lines
+// ctrl + click + shift inspect/ go to definition
+
+// DOM stand for document object model
+      // provides a way for programming languages s.a JS, to 
+      // interact with and manipulate the structure, content
+
+// DOM stand for document object model provides a way for programming languages s.a JS, to 
+      // interact with and manipulate the structure, content
+
+Persistent Storage:
+      Data stored in localStorage remains until explicitly removed by the developer or the user (e.g., clearing browser data).
+      Key-Value Storage:
+
+/* The reason we use this type of design is that efficiency:(LOCAL STORAGE)
+      Accessing and modifying in memory "score" object is much faster
+      thus we don't want to make local storage calls all the time
+      We when to have permanent changes(local storage), as the local 
+      storage info stays until we clear browserr data(like cookies!)
+
+      Local storage is a web storage API designed for clientside persistence
+      Meant for non sensitive data s.a user preferences(dark theme)
+      Application state(items in cart)
+      */
+
+Lesson 10:
+
+in here we used the classlist, to add or delete a class attribute for removing if we are subsribed or not
+if (buttonElement.innerText === 'Subscribe') {
+    buttonElement.innerHTML = 'Subscribed';
+    buttonElement.classList.add('is-subscribed'); // add class "issubsribed"
+    // when we click it, thanks to this we can manipulate this object in 
+    // other classes and such
+} else {
+    buttonElement.innerHTML = 'Subscribe';
+    buttonElement.classList.remove('is-subscribed');
+}
+
+continue makes the for loop skip an iteration
+
+what is js good for?
+    1)save data
+    2)change inner html
+    3)make the page interactive
+
+Lesson 12:
+
+<!-- settimeout, setinterval, ,in these we might have to clear -->
+<!-- method = function saved inside an object -->
+
+const buttonElement = document.querySelector('.js-button'); // crate a js variable for the .js_botton class
+
+anonymous function: called passing a function to another function
+      // what "function" deos is: it defines a function on the spot, ,
+      // its called a anonymous function
+// function() helps you execute the function rather than returning the return value of that function
+      run(function() { 
+        console.log('hello4');
+      });
+
+// if we didn' had "function()", it would be executed immedietly, thus this allows asynchronous behaviour
+      // not after delaying for 2 seconds
+      setTimeout(function() {
+        console.log('timeout');
+        console.log('timeout2');
+      }, 3000);
+
+//const autoPlay = () => {
+//};
+// compared to above, this one is better(better than arrow version)
+// as allows hoisting(using it before we declare it)
+The point of using this autoPlay function is to allow the game to be played automatically at regular intervals (every 1 second in this case), and to provide a way to toggle this automatic playback on and off.
+function autoPlay() {
+  if (!isAutoPlaying) {
+    intervalId = setInterval(() => {
+      /* Set interval repeatedly executes a function at a specified time
+      interval until stopped with clearinterval */
+      /* we use the var intervalid, as it stores the if returned by
+      setinterval. id is needed to stop the interval later,
+      using clearinterval(intervalid), without intervalid,
+      we wouldn't be abşe tp reference specific intervcal */
+      const playerMove = pickComputerMove();
+      playGame(playerMove); // this makes it so that
+      // game is played every 1 second
+    }, 1000);
+    isAutoPlaying = true;
+  } else {
+    clearInterval(intervalId); // withoout this, the code doesn't know 
+    // when to stop, like which interval it has to reference to stop
+    isAutoPlaying = false;
+  }
+}
+
+document.querySelectorAll('.js-delete-todo-button') // declared in line 22
+// all elements with class js-delete-todo-button
+.forEach((deleteButton, index) => {
+    // for each delete button, we check if we clicked it
+    deleteButton.addEventListener('click', () => {
+    todoList.splice(index, 1);
+    renderTodoList(); /* we also call render so that we can see updatedd version  */
+    /* The code above removes the value! We splice the value(remove it) */
+    });
+});
+
+lesson 13:
+
+/* gits let us track changes in the code */
+/* repository = folder where changes are being tracked */
+
+let productsHTML = '';
+/* we want to generate html code with js, as we have so many divs and such */
+products.forEach((product) => { /* iterate through the json objects 
+  this is a nice way to generate stuff*/
+  /* in js, they useally use objects or arrays as data structures */
+  /* with notation ${product.image}, get the value from the "product" iterations */
+  productsHTML /* this is called the accumulator pattern */ += `
+    <div class="product-container">
+      <div class="product-image-container"> ...
+
+Lesson 14:
+
+5)!!!Save the cart in local storage
+6)!!!for the cart, we didn't just added a value, we created
+a copy with the new instance as its better for side effects/
+immutablity.(cart.js)
+7)we structured the code better. now instead we have all things connected
+at the same area not all in the same js file
+
+correct way of importing is this->have a scripts file, like your main script file then import and export from other helper jsfiles
+import {cart, addToCart} from '../data/cart.js';
+import {products} from '../data/products.js';
+import {formatCurrency} from './utils/money.js';
+/* third set, importing! importing helps us avoid naming conflicts,
+  also we dont have to worry about the order of files imported*/
+/* !!! for modules to work you need a live server */
+
+In cart.js->
+instead of just deleting an element from the cart, we use the immutabality, we instead 
+create a new cart eacg time
+
+checkout.js->
+container.remove(); deletes all child of the dom. thats basically why it works
+
+Lesson 15:
+
+in this lesson, we mainly implemented the changing the date, basically having a date to deliver
+
+Don't reinvent the wheel, use ai to find relevant libraries.
+
+JS Modules(ESM)(ECMA script version) contain modules so they 
+    won't conflict with any other file in this project
+    format: import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+
+!!!What is MVC(Model-View-Controller)
+    1)Model=save and manage data(in our case data folder with cart.js, products.js, deliveryoptions.js)
+    2)View =takes data displays on page(ordersummary.js->render() function) anad accumulator pattern
+    3)Controller=run some code when interact with the page(event callers!)
+MVC is like the reasons for using JS->save data, display data, make it interaactive
+
+!!!we NORMALIZED data: (instead of saving delivery info in cart,
+    we saved it inside a seperate array of key value pair called 
+    deliveryOptions(with 3 instances) and pointed it with "cart" attribute "deliveryOptionID")
+
+!!!after you change html, you need to rerun script, in this
+    case the renderOrderSummary() and renderPaymentSummary(), this is
+    also when we remove the values
+
+Lesson 16:
+
+<!-- What learned in this lesson
+    1)testing code!
+      1)manual testing(just test with your eyes)
+        1)its hard to test out all the cases
+        2)hard to reset
+      2)!!!automated testing(you can make it yourself as well)
+        it doesn't take much skill, just know what you need
+        cd: tests-simple/moneytest.js
+          Which cases to add?
+          1)either basic cases
+          2)or edge cases
+    2)instead of manually writing the automation code,
+    just use framworks s.a jasmine, which provides gui for 
+    tests
+    3)Jasmine gives a lot of details about where the problem 
+    ocurred and thanks to this easier to debug
+    4)test coverage=how much of the code is covered(tested),
+    ofcourse we want the highest possible value
+    5)!!!integration test=test entire webpage
+      You can test:
+      1)How the page looks(check html),
+      2)How the page behaves(check behaviour).
+    6)hooks: we can run code before everything or after everything
+    with special function calls called hooks. s.a beforeEach() in 
+    orderSummary.js
+    7)put the tests in relvant directories so there is a 
+    good structure
+    8)spyOn() lets you use a fake version of the local storage
+    (ofcourse you have to change the inner workings of code
+    for example, the fake local storage shouldnt save in 
+    real storage)
+    -->
+
+    <!-- if you have errors s.a json parse
+     call localStorage.clear() -->
+
+    <!-- This code is needed for responsive design to work.
+      (Responsive design = make the website look good on
+      smaller screen sizes like a phone or a tablet). -->
+
+Lesson 17: 
+
+<!-- what I learned in this lecture
+    1)Procedural programming VS OOP:
+      Procedural: step-by-step instructions, a function
+      OOP: organize code into objects
+
+<!-- after this lesson things to learn:
+     1)create your own backend using node.js 
+     2)learn how to use react.js-->
+
+<!-- things learned
+    !!!(to be frank backend part didnt really work out becasue I dont have access to his
+    1)Instead of functions, we use classes of cart-class.js 
+    again we are creting objects but now usşing the classes
+    2)constructor=initalize and create an instance of an object
+    everytime you create an object
+    !!!3)class=better way to generate an object(before we were using arrays
+    with many key value pairs, thats why he calls them objects)
+    4)in js # means private variable inside an object
+    5)when coding make sure the methods that will be executed inside 
+    the class has only private class identifier
+    6)learned to convert an object into a class
+    (using map)
+    7)inheritence: avoid code dup by reusing the code
+    8)make sure you use the correct private and public additions in the code
+
+Lesson 18:
+
+lec18:callbacks, backend and async wait
+    8)backend, callbacks and async wait
+      (to be frank backend part didnt really work out)
+      !!!most likely not working as server is like a buffer, not a real server
+      1)backend:computer that manages data of a website
+        how does it work? when we request for a item in amazon
+        they save the data on a computer that is owned by amazon
+        frontend: where the user sees things, html css of website
+
+      2)https have 1 request and 1 response,
+      you can see the network packages or messages
+      send through HTTPS requests
+      status code show is https request was successfull or not
+
+      3)!!!using a browser to see a webpage = a GET request of HTTPS
+    
+      4)happens in product.js
+      5)main thing about this kind of coding(using backend) is you have 
+      to care about the callbacks
+        1)send a request
+        2)wait for a callback for a response, then run the code
+        3)when you write code with testing cases, make sure
+        that loading of data is done before the testing
+    
+      loadProducts(() => { 
+      loadCart(() => { load products,
+        renderOrderSummary(); when you are done run the rest
+        renderPaymentSummary();
+      });
+      });
+
+      buyBread(() => {
+        getButter(() => {
+            putButterOnBread(() => {
+                eat();
+            });
+        });
+      });
+
+      -->
+
+<!-- lesson 19
+    1)Promises in JavaScript are objects used to handle asynchronous operations
+    (e.g., fetching data). They represent the eventual result of an operation:
+    fulfilled (success), rejected (error), or pending.
+    fetch is a built-in function used to make HTTP requests to a backend server.
+    resolves let us control when we go to the next step
+    !!!main adv of promises 
+    1)is that compared to callbacks, we have 
+    less nesting thus easier to understand, 
+    keeps the code flat
+    2)we can control the flow with keyword("resolve")
+    3)has function called "promiseAll" which the code inside the 
+    array at the same time, which is not provided by callbacks
+    4)saves the response in a variable! so then() can use it
+    5)handle code better with fetch
+
+    buyBread()
+    .then(() => getButter())
+    .then(() => putButterOnBread())
+    .then(() => eat());
+
+     2)fetch:fetch is a built-in function used to make HTTP requests to a backend server.
+    resolves let us control when we go to the next step
+    1)much simpler compared to XMLRequest
+    2)parses the fetched data into an array! easier to maintain
+
+     const promise = fetch( //step 1, also parses into arrays!
+    'https://supersimplebackend.dev/products'
+        ).then((response) => { //save the response in "response"
+            return response.json();
+        }).then((productsData) => {
+            products = productsData.map((productDetails) => {
+            if (productDetails.type === 'clothing') {
+                return new Clothing(productDetails); //still we have to convert
+                //them into objects
+            }
+            return new Product(productDetails);
+            // still we have to convert them to objects
+            });
+
+    -->
+
+<!-- lesson 20
+    1)async=shortcut for all the promises, makes a function
+    thats return promise, it is different compared to promises and fetch
+    it uses a different way of syntax
+    2)we have async, await in this one, it still returns a promise
+    3)much easier to understand
+    !!!USE ASYNCH AS IT IS THE META
+    easier to read, debug and has all benefits of promise
+
+    async function makeSandwich() {
+        await buyBread();
+        await getButter();
+        await putButterOnBread();
+        eat();
+    }
+
+    ERRORS:
+    1)handle errors in js with TRY and CATCH
+    2)also works for asynch code
+    3)use try and catch only for unexpected errors s.a loading data
+    from a website
+    4)throw->throws an error, used for if else cases
+    5)reject: lets us create error in future, included in promises
+
+    BACKEND Section:
+    Get: get data from backend
+    Post: send data to the backend
+    Put:
+    Delete:
+    In real world we send http requests to send the order to the 
+    website servers
+
+    URL Parameters:
+    in tracking.html, we can save the data in url using:
+    1)query parameters: ?key=value
+    2)hash parameters: #key=value
+
+    Why is tracking used?
+    1)navigation and state management:
+    -keep track of users actions and selections across multiple pages
+    -allow users to bookmark or share specific states of the application
+    -support forward/backward navigation
+    2)analytics and user behaviour;
+    -track where user come from
+    -monitor which products they are viewing 
+    -->
+

@@ -71,7 +71,7 @@ new Promise((resolve) => {
 });
 */
 
-
+/* LESSON 18 CALLBACKS */
 /* does the same thing a above but smaller code */
 /*
 loadProducts(() => { 

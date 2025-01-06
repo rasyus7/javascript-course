@@ -25,7 +25,8 @@ let intervalId; // id is used to stop intervals!
 
 // compared to above, this one is better(better than arrow version)
 // as allows hoisting(using it before we declare it)
-function autoPlay() {
+/* The point of using this autoPlay function is to allow the game to be played automatically at regular intervals (every 1 second in this case), and to provide a way to toggle this automatic playback on and off.
+ */function autoPlay() {
   if (!isAutoPlaying) {
     intervalId = setInterval(() => {
       /* Set interval repeatedly executes a function at a specified time
