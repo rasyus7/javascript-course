@@ -37,6 +37,7 @@ onmkeydown is an html attribute and it has an event listener
 // DOM stand for document object model
       // provides a way for programming languages s.a JS, to 
       // interact with and manipulate the structure, content
+      // is like the document or web page structure
 
 // DOM stand for document object model provides a way for programming languages s.a JS, to 
       // interact with and manipulate the structure, content
@@ -71,7 +72,7 @@ if (buttonElement.innerText === 'Subscribe') {
 
 continue makes the for loop skip an iteration
 
-what is js good for?
+what is js good for? 
     1)save data
     2)change inner html
     3)make the page interactive
@@ -80,6 +81,9 @@ Lesson 12:
 
 <!-- settimeout, setinterval, ,in these we might have to clear -->
 <!-- method = function saved inside an object -->
+// asynchronous code = wont wait for the line to finish before going to the next line
+// synchronouys code = will wait for the line to finish before we move toit he next
+// 
 
 const buttonElement = document.querySelector('.js-button'); // crate a js variable for the .js_botton class
 
@@ -93,10 +97,17 @@ anonymous function: called passing a function to another function
 
 // if we didn' had "function()", it would be executed immedietly, thus this allows asynchronous behaviour
       // not after delaying for 2 seconds
+      // it does start the timer, however it does not wait for the 3 seconds to dinish
       setTimeout(function() {
         console.log('timeout');
         console.log('timeout2');
       }, 3000);
+
+//console.log('1');           // prints immediately
+//setTimeout(function() {     // starts timer, keeps going
+//  console.log('2');
+//}, 3000);
+//console.log('3');           // prints immediately (doesn't wait)
 
 //const autoPlay = () => {
 //};
@@ -111,7 +122,7 @@ function autoPlay() {
       /* we use the var intervalid, as it stores the if returned by
       setinterval. id is needed to stop the interval later,
       using clearinterval(intervalid), without intervalid,
-      we wouldn't be abşe tp reference specific intervcal */
+      we wouldn't be able tp reference specific intervcal */
       const playerMove = pickComputerMove();
       playGame(playerMove); // this makes it so that
       // game is played every 1 second
